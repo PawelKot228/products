@@ -25,7 +25,7 @@ class ProductIndexRequest extends FormRequest
             'priceEnd' => ['sometimes', 'numeric', 'min:0', 'required_if:priceStart,gte:priceStart'],
             'orderBy' => ['sometimes', Rule::in($this->orderColumns)],
             'sort' => ['sometimes', 'in:desc,asc'],
-            'limit' => ['sometimes', 'numeric', 'min:5', 'max:100'],
+            'limit' => ['sometimes', 'numeric', 'min:1', 'max:100'],
         ];
     }
 
