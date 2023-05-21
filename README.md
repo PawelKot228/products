@@ -34,3 +34,6 @@ Zawarte są również feature testy obejmujące każdy API endpoint, wraz ze spr
 | GET/HEAD  | /api/products/{product}/prices/{price} | ProductPriceController@show    |
 | PUT/PATCH | /api/products/{product}/prices/{price} | ProductPriceController@update  |
 | DELETE    | /api/products/{product}/prices/{price} | ProductPriceController@destroy |
+
+## Instalacja
+Jedyne co jest potrzebne po `composer install`, to skonfigurowanie `.env`, aby miało połączenie z bazą danych, a następnie uruchomienie migracji (opcjonalnie z flagą `--seed`)
