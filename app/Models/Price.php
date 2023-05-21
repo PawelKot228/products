@@ -6,7 +6,7 @@ use App\Enum\Currency;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductPrice extends Model
+class Price extends Model
 {
     use HasFactory;
 

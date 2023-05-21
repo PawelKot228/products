@@ -5,7 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Enum\Currency;
 use App\Models\Product;
-use App\Models\ProductPrice;
+use App\Models\Price;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
         Product::factory(100)->create()
             ->each(
                 fn(Product $product) => $product->prices()->saveMany([
-                    ProductPrice::factory()->withCurrency(Currency::EURO)->make(),
-                    ProductPrice::factory()->withCurrency(Currency::PLN)->make(),
-                    ProductPrice::factory()->withCurrency(Currency::USD)->make(),
+                    Price::factory()->currency(Currency::EURO)->make(),
+                    Price::factory()->currency(Currency::PLN)->make(),
+                    Price::factory()->currency(Currency::USD)->make(),
                 ])
             );
     }

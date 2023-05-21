@@ -4,7 +4,7 @@ namespace App\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class ByName
+class OrderBy
 {
     public function __construct(protected \Request $request)
     {
@@ -13,8 +13,11 @@ class ByName
 
     public function handle(Builder $query, \Closure $next)
     {
-        if ($this->request::has('name')) {
-            $query->where('products.name', 'LIKE', "%{$this->request::get('name')}%");
+        if ($this->request::has('orderBy')) {
+            $query->orderBy(
+                "products.{$this->request::get('orderBy')}",
+                $this->request::get('sort', 'asc')
+            );
         }
 
         return $next($query);

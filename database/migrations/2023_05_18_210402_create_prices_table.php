@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('product_prices', function (Blueprint $table) {
+        Schema::create('prices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->decimal('price');
@@ -18,7 +18,7 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::table('product_prices', function (Blueprint $table) {
+        Schema::table('prices', function (Blueprint $table) {
             $table->dropConstrainedForeignId('product_id');
             $table->dropIfExists();
         });

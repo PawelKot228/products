@@ -4,7 +4,7 @@ namespace App\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class ByName
+class ByDescription
 {
     public function __construct(protected \Request $request)
     {
@@ -13,8 +13,8 @@ class ByName
 
     public function handle(Builder $query, \Closure $next)
     {
-        if ($this->request::has('name')) {
-            $query->where('products.name', 'LIKE', "%{$this->request::get('name')}%");
+        if ($this->request::has('description')) {
+            $query->where('products.name', 'LIKE', "%{$this->request::get('description')}%");
         }
 
         return $next($query);
